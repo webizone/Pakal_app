@@ -9,7 +9,15 @@
         {% for hotel in hotels %}
             <li>{{ hotel['name'] }} - {{ hotel['location'] }}</li>
         {% endfor %}
-    </ul>
+        
+    {% for hotel in hotels %}
+        <li>
+            <a href="/hotel/{{ hotel['name'] }}">{{ hotel['name'] }}</a>
+            - {{ hotel['location'] }}
+        </li>
+    {% endfor %}
+
+   </ul>
     <p><a href="/dashboard">Back to Dashboard</a></p>
     <p><a href="/logout">Logout</a></p>
 </body>
