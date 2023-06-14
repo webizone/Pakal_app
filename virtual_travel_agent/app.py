@@ -128,6 +128,25 @@ def hotel_search():
         return render_template('hotel_search_results.html', location=location, hotels=hotels)
     else:
         return redirect('/')
+    
+    
+    @app.route('/search', methods=['POST'])
+def hotel_search():
+    if 'user' in session:
+        location = request.form['location']
+        # Perform hotel search logic
+
+        # For demonstration purposes, let's assume we have a list of hotels
+        hotels = [
+            {'name': 'Hotel A', 'location': 'Location A', 'description': 'This is Hotel A'},
+            {'name': 'Hotel B', 'location': 'Location B', 'description': 'This is Hotel B'},
+            {'name': 'Hotel C', 'location': 'Location C', 'description': 'This is Hotel C'}
+        ]
+
+        return render_template('hotel_search_results.html', location=location, hotels=hotels)
+    else:
+        return redirect('/')
+
 
 
 
