@@ -109,5 +109,28 @@ def update_profile():
     return redirect('/')
 
 
+# Create a route for hotel search
+@app.route('/search', methods=['POST'])
+def hotel_search():
+    if 'user' in session:
+        location = request.form['location']
+
+        # Perform hotel search logic
+        # This is where you would connect to an API or perform database queries to fetch hotel data based on the location provided
+
+        # For demonstration purposes, let's assume we have a list of hotels
+        hotels = [
+            {'name': 'Hotel A', 'location': 'Location A'},
+            {'name': 'Hotel B', 'location': 'Location B'},
+            {'name': 'Hotel C', 'location': 'Location C'}
+        ]
+
+        return render_template('hotel_search_results.html', location=location, hotels=hotels)
+    else:
+        return redirect('/')
+
+
+
+
 
 
