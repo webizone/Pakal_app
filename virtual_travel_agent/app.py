@@ -80,3 +80,34 @@ def logout():
     return redirect('/')
 
 
+# Update the dashboard route to show the profile page
+@app.route('/dashboard')
+def dashboard():
+    if 'user' in session:
+        return render_template('profile.html', user=session['user'])
+    else:
+        return redirect('/')
+
+# Create a route for updating the user profile
+@app.route('/update_profile', methods=['POST'])
+def update_profile():
+    if 'user' in session:
+        name = request.form['name']
+
+        # Update the user's name in the database
+        conn = sqlite3.connect('travel_agent.db')
+        c = conn.cursor()
+        c.execute("UPDATE users SET name=? WHERE id=?", (name, session['user']['id']))
+        conn.commit()
+        conn.close()
+
+        # Update the name in the session
+        session['user']['name'] = name
+
+        return redirect('/dashboard')
+
+    return redirect('/')
+
+
+
+
