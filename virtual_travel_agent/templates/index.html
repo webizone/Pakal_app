@@ -76,3 +76,26 @@
 </html>
 
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pakal - Hotel Search</title>
+</head>
+<body>
+    <h1>Hotel Search</h1>
+    {% if user %}
+        <form action="/search" method="POST">
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
+            <br><br>
+            <input type="submit" value="Search">
+        </form>
+        <p><a href="/logout">Logout</a></p>
+    {% else %}
+        <p>Please <a href="/">login</a> to search for hotels.</p>
+    {% endif %}
+</body>
+</html>
+
+
+
