@@ -51,3 +51,28 @@
 </body>
 </html>
 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pakal - Profile</title>
+</head>
+<body>
+    <h1>Profile</h1>
+    {% if user %}
+        <p>Name: {{ user['name'] }}</p>
+        <p>Email: {{ user['email'] }}</p>
+        <form action="/update_profile" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{ user['name'] }}" required>
+            <br><br>
+            <input type="submit" value="Update Profile">
+        </form>
+        <p><a href="/logout">Logout</a></p>
+    {% else %}
+        <p>Please <a href="/">login</a> to view your profile.</p>
+    {% endif %}
+</body>
+</html>
+
+
