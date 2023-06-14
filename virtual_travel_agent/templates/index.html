@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Pakal</title>
+</head>
+<body>
+    <h1>Welcome to Pakal!</h1>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
     <title>Pakal - Registration</title>
 </head>
 <body>
@@ -19,3 +30,24 @@
     </form>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pakal - Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form action="/login" method="POST">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br><br>
+        <input type="submit" value="Login">
+    </form>
+    <p>Don't have an account? <a href="/register">Register</a> now!</p>
+</body>
+</html>
+
