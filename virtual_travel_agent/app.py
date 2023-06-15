@@ -146,6 +146,26 @@ def hotel_search():
         return render_template('hotel_search_results.html', location=location, hotels=hotels)
     else:
         return redirect('/')
+    
+    
+    @app.route('/hotel/<hotel_name>/book', methods=['GET', 'POST'])
+def book_hotel(hotel_name):
+    if 'user' in session:
+        if request.method == 'POST':
+            # Retrieve booking details from the form
+            check_in_date = request.form['check_in_date']
+            check_out_date = request.form['check_out_date']
+            num_guests = request.form['num_guests']
+
+            # Perform booking process logic
+            # This is where you would typically store the booking details in a database or connect to a booking API
+
+            return f"Successfully booked {hotel_name} for {num_guests} guests from {check_in_date} to {check_out_date}!"
+
+        return render_template('hotel_booking.html', hotel_name=hotel_name)
+    else:
+        return redirect('/')
+
 
 
 
