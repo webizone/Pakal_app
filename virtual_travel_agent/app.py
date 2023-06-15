@@ -165,6 +165,24 @@ def book_hotel(hotel_name):
         return render_template('hotel_booking.html', hotel_name=hotel_name)
     else:
         return redirect('/')
+    
+    @app.route('/dashboard')
+def dashboard():
+    if 'user' in session:
+        # Retrieve the user's past bookings from the database or any other data source
+        # For demonstration purposes, let's assume we have a list of past bookings for the user
+        past_bookings = [
+            {'hotel': 'Hotel A', 'check_in_date': '2023-06-01', 'check_out_date': '2023-06-03'},
+            {'hotel': 'Hotel B', 'check_in_date': '2023-06-05', 'check_out_date': '2023-06-07'}
+        ]
+
+        return render_template('dashboard.html', past_bookings=past_bookings)
+    else:
+        return redirect('/')
+
+    
+    
+   
 
 
 
