@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pakal - Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to Your Dashboard</h1>
+    <h2>User: {{ user }}</h2>
+    <p><a href="/search">Search Hotels</a></p>
+    <h2>Past Bookings</h2>
+    <ul>
+        {% for booking in past_bookings %}
+            <li>{{ booking['hotel'] }} - Check-in: {{ booking['check_in_date'] }}, Check-out: {{ booking['check_out_date'] }}</li>
+        {% endfor %}
+    </ul>
+    <p><a href="/logout">Logout</a></p>
+</body>
+</html>
